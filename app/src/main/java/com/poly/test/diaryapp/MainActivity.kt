@@ -2,6 +2,7 @@ package com.poly.test.diaryapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.poly.test.diaryapp.Calendar.CalendarFragment
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         menu_bar.setOnNavigationItemSelectedListener(this)
 
+        Log.d("로그","레몬의 브런치")
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
