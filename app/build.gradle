@@ -55,6 +55,7 @@ dependencies {
     // 파이어베이스 로그인 설정
     implementation 'com.google.firebase:firebase-auth:19.4.0'
     implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    implementation 'com.google.firebase:firebase-auth-ktx'
 
     // 파이어베이스 스토어
     implementation 'com.google.firebase:firebase-firestore:22.0.0'
