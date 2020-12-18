@@ -63,6 +63,12 @@ dependencies {
     // 타겟 에러 방지
     implementation 'com.android.support:multidex:1.0.3'
 
+    // 메테리얼 캘린더뷰
+    implementation 'com.github.prolificinteractive:material-calendarview:1.4.3'
+
+
+    // 코루틴
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
 
 
 }

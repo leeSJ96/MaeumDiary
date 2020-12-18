@@ -10,6 +10,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.poly.test.diaryapp.MainActivity
 import com.poly.test.diaryapp.R
+import com.poly.test.diaryapp.utils.Constants.USER
 
 class IntroActivity : AppCompatActivity() {
 
@@ -37,6 +38,7 @@ class IntroActivity : AppCompatActivity() {
 
         if (account != null) {
             Log.d("로그"," 익명 로그인 $account")
+            USER = account.toString()
             startActivity(intent)
             overridePendingTransition(R.anim.page_right_in, R.anim.page_left_out)
         } else {

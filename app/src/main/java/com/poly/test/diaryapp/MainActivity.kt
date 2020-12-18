@@ -21,8 +21,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         menu_bar.selectedItemId = R.id.home_tab
 
         menu_bar.setOnNavigationItemSelectedListener(this)
-
-        Log.d("로그","레몬의 브런치")
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
