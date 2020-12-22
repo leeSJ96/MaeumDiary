@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputFilter
 import android.text.Spanned
+import android.view.inputmethod.InputMethodManager
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.poly.test.diaryapp.R
@@ -15,7 +16,7 @@ import java.util.regex.Pattern
 
 class JoinActivity : AppCompatActivity(), InputFilter {
 
-    val firebaseAuth = FirebaseAuth.getInstance()
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun filter(
             source: CharSequence?,
@@ -44,6 +45,7 @@ class JoinActivity : AppCompatActivity(), InputFilter {
 
         email_input.filters = arrayOf<InputFilter>(JoinActivity())
         email_input.privateImeOptions = "defaultInputmode=english;"
+        val imm: InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
 
         back_btn.setOnClickListener {
             onBackPressed()
@@ -51,14 +53,16 @@ class JoinActivity : AppCompatActivity(), InputFilter {
 
         input_btn.setOnClickListener {
 
+            imm.hideSoftInputFromWindow(password_input.windowToken, 0);
+
             when {
 
                 email_input.length() < 1 -> {
-                    Snackbar.make(join_layout, "아이디 값이 비었습니다,", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(join_layout, "아이디 값이 비었습니다.", Snackbar.LENGTH_SHORT).show()
                 }
 
                 password_input.length() < 6 -> {
-                    Snackbar.make(join_layout, "패스워드는 최소 6자 이상으로 작성해야 합니다,", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(join_layout, "패스워드는 최소 6자 이상으로 작성해야 합니다.", Snackbar.LENGTH_SHORT).show()
                 }
 
                 password_input.text.toString() != password2_input.text.toString() -> {

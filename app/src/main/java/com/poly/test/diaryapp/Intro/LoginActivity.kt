@@ -1,23 +1,28 @@
 package com.poly.test.diaryapp.Intro
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.poly.test.diaryapp.MainActivity
 import com.poly.test.diaryapp.R
 import com.poly.test.diaryapp.utils.Constants.EmailFormError
 import com.poly.test.diaryapp.utils.Constants.IdFail
 import com.poly.test.diaryapp.utils.Constants.PasswordFail
 import kotlinx.android.synthetic.main.activity_login.*
-
+import kotlinx.coroutines.*
 
 class LoginActivity : AppCompatActivity() {
 
 
     private var firebaseAuth = FirebaseAuth.getInstance()
+    private var coroutineJob = Job()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
 
         val idValue = intent.getStringExtra("id")
         val pwValue = intent.getStringExtra("pw")
+        val imm: InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
 
         if (idValue != null) {
             login_email_input.setText(idValue)
@@ -33,6 +39,9 @@ class LoginActivity : AppCompatActivity() {
 
 
         login_btn.setOnClickListener {
+
+            imm.hideSoftInputFromWindow(login_password_input.windowToken, 0);
+
             when {
                 login_email_input.text.isNullOrEmpty() -> {
                     Snackbar.make(login_layout, "아이디 값이 비었습니다", Snackbar.LENGTH_SHORT).show()
@@ -69,25 +78,75 @@ class LoginActivity : AppCompatActivity() {
         val id = login_email_input.text.toString()
         val pw = login_password_input.text.toString()
 
+        val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
+        val editor = pref.edit()
+
+        val store = FirebaseFirestore.getInstance().collection("user_uid")
+        val checkKey = ArrayList<String>()
+        val checkValue = ArrayList<String>()
+        var authFirstCheck = true
+        var name = ""
+        var uid = ""
+
         firebaseAuth.signInWithEmailAndPassword(id, pw)
                 .addOnCompleteListener(this) { task ->
 
                     if (task.isSuccessful) {
 
-                        storeSave()
+                        var intent = Intent(applicationContext, FirstVisitActivity::class.java)
+                        uid = firebaseAuth.uid.toString()
+                        editor.putString("userToken", uid)
+                        editor.apply()
 
-                        val intent = Intent(this, MainActivity::class.java)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-                        startActivity(intent)
-                        overridePendingTransition(R.anim.page_right_in, R.anim.page_left_out)
+                        CoroutineScope(Dispatchers.Main).launch {
 
-                        this.finish()
+                            store.get().addOnSuccessListener {
 
-                        login_btn.isEnabled = true
-                        login_btn.text = "로그인하기"
-                    }
+                                coroutineJob = CoroutineScope(Dispatchers.IO).launch {
 
-                }
+                                    withContext(Dispatchers.IO) {
+                                        for (document in it) {
+                                            checkKey.add(document.data.keys.toString())
+                                            checkValue.add(document.data.values.toString())
+                                        }
+
+                                        for (i in checkKey.indices) {
+
+                                            name = checkKey[i].replace("[", "").replace("]", "")
+                                            Log.d("로그", "key size ${checkKey.size}")
+                                            Log.d("로그", "key name $name")
+                                            if (name == id) {
+                                                authFirstCheck = false
+                                                Log.d("로그", "uid ${checkValue[i]}")
+                                            }
+                                        }
+                                    }
+
+                                    withContext(Dispatchers.Main) {
+                                        intent = when (authFirstCheck) {
+                                            true -> Intent(this@LoginActivity, FirstVisitActivity::class.java)
+                                            false -> Intent(this@LoginActivity, MainActivity::class.java)
+                                        }
+                                        intent.putExtra("email", id)  // 이메일
+                                        intent.putExtra("uid", uid)  // uid
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                        coroutineJob.cancel()
+                                        startActivity(intent)
+                                        this@LoginActivity.finish()
+                                        overridePendingTransition(R.anim.page_right_in, R.anim.page_left_out)
+                                    }
+                                }
+                            }
+
+                            coroutineJob.join()
+
+                        } // 코루틴 스코프
+
+
+                    } // if success
+
+                } // addOnComplete
+
                 .addOnFailureListener {
                     login_btn.isEnabled = true
                     login_btn.text = "로그인하기"
@@ -104,22 +163,13 @@ class LoginActivity : AppCompatActivity() {
                                     .show()
                         }
                     }
-
-
                 }
 
     }
 
 
-    private fun storeSave() {
-
-        // 구현 중...
-        
-        val mUser = firebaseAuth.currentUser?.uid
-        Log.d("로그","mUser $mUser")
-
-
+    override fun onDestroy() {
+        super.onDestroy()
+        coroutineJob.cancel()
     }
-
-
 }
