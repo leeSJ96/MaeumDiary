@@ -1,6 +1,8 @@
 package com.poly.test.diaryapp.Intro
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -19,10 +21,10 @@ class FirstVisitActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_firstvisit)
 
-        val email = intent.getStringExtra("email")
-        val uid = intent.getStringExtra("uid")
 
-
+        val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
+        val email = pref.getString("userEmail", "")
+        val uid = pref.getString("userToken", "")
 
 
         Log.d("로그", "email $email")
@@ -45,6 +47,8 @@ class FirstVisitActivity : AppCompatActivity() {
         }
 
         start_btn.setOnClickListener {
+
+
             nameSaveDB(email!!, uid!!)
         }
 
@@ -66,11 +70,19 @@ class FirstVisitActivity : AppCompatActivity() {
         val nameMap: MutableMap<String, String> = HashMap()
         val uidMap: MutableMap<String, String> = HashMap()
 
+        val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
+        val edit = pref.edit()
+
         nameMap[email] = name
         uidMap[email] = uid
 
+
+
         nameStore.add(nameMap).addOnSuccessListener {
 
+            edit.putString("userName", nameMap[email])
+            edit.apply()
+            Log.d("로그","name ${nameMap[email]}")
             Log.d("로그", "이름 저장 성공")
         }
 

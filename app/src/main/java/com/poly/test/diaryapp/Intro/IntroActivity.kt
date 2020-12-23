@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.poly.test.diaryapp.MainActivity
 import com.poly.test.diaryapp.R
@@ -21,7 +22,12 @@ class IntroActivity : AppCompatActivity() {
 
         val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
         val uid = pref.getString("userToken", null)
+        val name = pref.getString("userName","")
+        val email = pref.getString("userEmail","")
 
+        Log.d("로그","uid $uid")
+        Log.d("로그","name $name")
+        Log.d("로그","email $email")
 
         if (uid != null) {
 
@@ -77,8 +83,6 @@ class IntroActivity : AppCompatActivity() {
                             false -> Intent(this@IntroActivity, LoginActivity::class.java)
 
                         }
-                        intent.putExtra("email", emailValue)
-                        intent.putExtra("uid", uid)
                         startActivity(intent)
                         this@IntroActivity.finish()
                         overridePendingTransition(R.anim.page_right_in, R.anim.page_left_out)

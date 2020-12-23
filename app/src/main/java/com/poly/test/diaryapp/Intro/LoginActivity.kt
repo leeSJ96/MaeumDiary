@@ -81,12 +81,20 @@ class LoginActivity : AppCompatActivity() {
         val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
         val editor = pref.edit()
 
-        val store = FirebaseFirestore.getInstance().collection("user_uid")
-        val checkKey = ArrayList<String>()
-        val checkValue = ArrayList<String>()
+        val uidStore = FirebaseFirestore.getInstance().collection("user_uid")
+        val nameStore = FirebaseFirestore.getInstance().collection("user_name")
+
+        val uidCheckKey = ArrayList<String>()  // 유저 이메일
+        val uidCheckValue = ArrayList<String>() // 유저 uid
+
+        val nameCheckKey = ArrayList<String>()
+        val nameCheckValue = ArrayList<String>()
+
+
         var authFirstCheck = true
-        var name = ""
+        var email = ""
         var uid = ""
+        var name = ""
 
         firebaseAuth.signInWithEmailAndPassword(id, pw)
                 .addOnCompleteListener(this) { task ->
@@ -96,47 +104,73 @@ class LoginActivity : AppCompatActivity() {
                         var intent = Intent(applicationContext, FirstVisitActivity::class.java)
                         uid = firebaseAuth.uid.toString()
                         editor.putString("userToken", uid)
+                        editor.putString("userEmail", id)
                         editor.apply()
 
                         CoroutineScope(Dispatchers.Main).launch {
 
-                            store.get().addOnSuccessListener {
+                            uidStore.get().addOnSuccessListener {
 
                                 coroutineJob = CoroutineScope(Dispatchers.IO).launch {
 
                                     withContext(Dispatchers.IO) {
                                         for (document in it) {
-                                            checkKey.add(document.data.keys.toString())
-                                            checkValue.add(document.data.values.toString())
+                                            uidCheckKey.add(document.data.keys.toString())
+                                            uidCheckValue.add(document.data.values.toString())
                                         }
 
-                                        for (i in checkKey.indices) {
+                                        for (i in uidCheckKey.indices) {
 
-                                            name = checkKey[i].replace("[", "").replace("]", "")
-                                            Log.d("로그", "key size ${checkKey.size}")
-                                            Log.d("로그", "key name $name")
-                                            if (name == id) {
+                                            email = uidCheckKey[i].replace("[", "").replace("]", "")
+                                            Log.d("로그", "key size ${uidCheckKey.size}")
+                                            Log.d("로그", "key email $email")
+                                            if (email == id) {
                                                 authFirstCheck = false
-                                                Log.d("로그", "uid ${checkValue[i]}")
                                             }
                                         }
+                                    } // withContext
+
+                                    withContext(Dispatchers.IO) {
+                                        if (!authFirstCheck) {  // 계정이 있을 시.
+                                            nameStore.get().addOnSuccessListener {
+
+
+                                                for (document in it) {
+                                                    nameCheckKey.add(document.data.keys.toString())
+                                                    nameCheckValue.add(document.data.values.toString())
+                                                }
+
+                                                for (i in nameCheckKey.indices) {
+
+                                                    Log.d("로그", "계정 있을 시 key size ${nameCheckKey.size}")
+                                                    email = nameCheckKey[i].replace("[", "").replace("]", "")
+                                                    if (email == id) {
+                                                        name = nameCheckValue[i].replace("[", "").replace("]", "")
+                                                        Log.d("로그", "계정 있을 시 key name $name")
+                                                        editor.putString("userName", name)
+                                                        editor.apply()
+                                                    }
+                                                }
+
+
+                                            }   // nameStore
+                                        }
                                     }
+
 
                                     withContext(Dispatchers.Main) {
                                         intent = when (authFirstCheck) {
                                             true -> Intent(this@LoginActivity, FirstVisitActivity::class.java)
                                             false -> Intent(this@LoginActivity, MainActivity::class.java)
                                         }
-                                        intent.putExtra("email", id)  // 이메일
-                                        intent.putExtra("uid", uid)  // uid
-                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                                         coroutineJob.cancel()
                                         startActivity(intent)
                                         this@LoginActivity.finish()
                                         overridePendingTransition(R.anim.page_right_in, R.anim.page_left_out)
                                     }
                                 }
-                            }
+                            }   // uidStore
+
 
                             coroutineJob.join()
 
