@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/calendar_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Calendar.CalendarFragment">
@@ -44,6 +45,7 @@
             android:text="Today"
             android:textColor="@color/black"
             android:textSize="10sp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toStartOf="@id/write_btn"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,34 +56,37 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/today_date" />
+            app:layout_constraintTop_toBottomOf="@id/today_date"
+            app:mcv_selectionColor="@color/gray_sky_blue" />
 
         <LinearLayout
             android:id="@+id/date_layout"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:orientation="horizontal"
-            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="invisible"
             app:layout_constraintTop_toBottomOf="@id/calendar_view"
             tools:ignore="RtlCompat">
 
             <TextView
                 android:id="@+id/check_date"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="20sp"
-                tools:text="1" />
+                android:text="01일"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/check_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="얄리얄리얄라성"
+                android:text="일정 추가 +"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 

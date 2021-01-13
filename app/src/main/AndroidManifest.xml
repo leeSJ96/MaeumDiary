@@ -11,27 +11,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DiaryApp">
+        <activity android:name=".Setting.SetBgColorActivity"></activity>
+        <activity android:name=".Calendar.CalendarWriteActivity" />
         <activity
             android:name=".Intro.FirstVisitActivity"
-            android:screenOrientation="nosensor"></activity>
+            android:screenOrientation="nosensor" />
         <activity
             android:name=".Intro.JoinActivity"
             android:screenOrientation="nosensor" />
         <activity
             android:name=".Intro.LoginActivity"
-            android:screenOrientation="nosensor">
-
-        </activity>
+            android:screenOrientation="nosensor" />
         <activity
             android:name=".Intro.IntroActivity"
             android:screenOrientation="nosensor">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".MainActivity"

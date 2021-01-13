@@ -11,6 +11,9 @@ import com.poly.test.diaryapp.Setting.SettingFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+
+    private var mBundle = Bundle()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,13 +31,14 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
             R.id.home_tab -> {
                 val homeFragment = HomeFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.frag_layout, homeFragment)
-                    .commit()
+                homeFragment.arguments = mBundle
+                supportFragmentManager.beginTransaction().replace(R.id.frag_layout, homeFragment).commit()
                 return true
             }
 
             R.id.calendar_tab -> {
                 val calendarFragment = CalendarFragment()
+                calendarFragment.arguments = mBundle
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.frag_layout, calendarFragment)
                     .commit()
@@ -43,6 +47,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
             R.id.setting_tab -> {
                 val settingFragment = SettingFragment()
+                settingFragment.arguments = mBundle
                 supportFragmentManager.beginTransaction().replace(R.id.frag_layout, settingFragment)
                     .commit()
                 return true
@@ -51,6 +56,11 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
 
         return true
+    }
+
+    fun fragBtnClick(bundle: Bundle){
+
+        mBundle = bundle
     }
 
 
