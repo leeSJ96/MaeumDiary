@@ -25,5 +25,6 @@ class OneDayDecorator : DayViewDecorator {
         view?.addSpan(StyleSpan(Typeface.BOLD))
         view?.addSpan(RelativeSizeSpan(1.4f))
         view?.addSpan(ForegroundColorSpan(Color.DKGRAY))
+        
     }
 }

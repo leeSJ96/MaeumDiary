@@ -4,10 +4,7 @@ import com.poly.test.diaryapp.R
 
 object Constants {
 
-    var USER : String? = ""
-
     var COLOR_BG = R.color.white
-
 
     const val AuthOverLap = "The email address is already in use by another account"
     const val EmailFormError = "he email address is badly formatted"

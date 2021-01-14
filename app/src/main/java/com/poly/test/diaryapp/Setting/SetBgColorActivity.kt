@@ -12,6 +12,7 @@ class SetBgColorActivity : AppCompatActivity() {
         setContentView(R.layout.activity_set_bg_color)
         val settingFragment = SettingFragment()
 
+
         colorBtn.setOnClickListener {
             COLOR_BG = R.color.gray_sky_blue
             finish()

@@ -39,9 +39,9 @@ class CalendarFragment : Fragment(), OnDateSelectedListener {
     private val calendarArray = ArrayList<CalendarModel>()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_calendar, container, false)
@@ -79,41 +79,43 @@ class CalendarFragment : Fragment(), OnDateSelectedListener {
 
 
         FirebaseFirestore.getInstance()
-            .collection("user_calendar")
-            .whereEqualTo("uid", uid)
-            .addSnapshotListener { querySnapshot, firebaseFireStoreException ->
+                .collection("user_calendar")
+                .whereEqualTo("uid", uid)
+                .addSnapshotListener { querySnapshot, firebaseFireStoreException ->
 
-                calendarArray.clear()
-                if (querySnapshot == null) return@addSnapshotListener
-                for (snapshot in querySnapshot.documents) {
-                    calendarArray.add(snapshot.toObject(CalendarModel::class.java)!!)
-                    Log.d("로그", "array ${calendarArray.size}")
-                    Log.d("로그", "array ${calendarArray[0].uid}")
-                    Log.d("로그", "array ${calendarArray[0].name}")
+                    calendarArray.clear()
+                    if (querySnapshot == null) return@addSnapshotListener
+                    for (snapshot in querySnapshot.documents) {
+                        calendarArray.add(snapshot.toObject(CalendarModel::class.java)!!)
+                        Log.d("로그", "array ${calendarArray.size}")
+                        Log.d("로그", "array ${calendarArray[0].uid}")
+                        Log.d("로그", "array ${calendarArray[0].name}")
+                    }
+
+                    Log.d("로그", "error $firebaseFireStoreException")
+
                 }
-
-                Log.d("로그", "error $firebaseFireStoreException")
-
-            }
     }
 
     @SuppressLint("SimpleDateFormat")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onDateSelected(
-        widget: MaterialCalendarView,
-        date: CalendarDay,
-        selected: Boolean
+            widget: MaterialCalendarView,
+            date: CalendarDay,
+            selected: Boolean
     ) {
 
 
         val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+        val todayFormat = SimpleDateFormat("yyyy년 MM월 dd일")
         var dateString = ""
-
+        var todayString = ""
         if (selected) {
 
             try {
                 dateString = dateFormat.format(date.date)
-                setDetailDateView(dateString, date.date)
+                todayString = todayFormat.format(date.date)
+                setDetailDateView(dateString, todayString, date.date)
             } catch (e: Exception) {
                 Log.d("로그", "dateFormat error $e")
             }
@@ -121,18 +123,19 @@ class CalendarFragment : Fragment(), OnDateSelectedListener {
     }
 
     @SuppressLint("SetTextI18n", "SimpleDateFormat")
-    private fun setDetailDateView(selectDate : String, date : Date) {
+    private fun setDetailDateView(selectDate: String, todayString: String, date: Date) {
 
         val dayFormat = SimpleDateFormat("dd")
         val dayText = dayFormat.format(date)
 
         calendarView!!.date_layout.visibility = View.VISIBLE
-        calendarView!!.check_date.text = dayText+"일"
+        calendarView!!.check_date.text = dayText + "일"
 
 
         calendarView!!.check_title.setOnClickListener {
             val intent = Intent(activity, CalendarWriteActivity::class.java)
             intent.putExtra("selectDate", selectDate)
+            intent.putExtra("todayString", todayString)
             startActivity(intent)
             activity?.overridePendingTransition(R.anim.page_right_in, R.anim.page_left_out)
         }
@@ -155,7 +158,7 @@ class CalendarFragment : Fragment(), OnDateSelectedListener {
         }
 
         FirebaseFirestore.getInstance().collection("user_calendar")
-            .document(saveData.uid!!).set(saveData)
+                .document(saveData.uid!!).set(saveData)
 
 
     }
