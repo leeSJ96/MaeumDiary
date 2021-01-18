@@ -11,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.poly.test.diaryapp.MainActivity
+import com.poly.test.diaryapp.MyApplication
 import com.poly.test.diaryapp.R
 import com.poly.test.diaryapp.utils.Constants.EmailFormError
 import com.poly.test.diaryapp.utils.Constants.IdFail
@@ -78,8 +79,10 @@ class LoginActivity : AppCompatActivity() {
         val id = login_email_input.text.toString()
         val pw = login_password_input.text.toString()
 
-        val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
-        val editor = pref.edit()
+//        val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
+
+//        val pref = SharedPreferenceFactory.putIntValue(this ,"ref", Context.MODE_PRIVATE)
+
 
         val uidStore = FirebaseFirestore.getInstance().collection("user_uid")
         val nameStore = FirebaseFirestore.getInstance().collection("user_name")
@@ -103,9 +106,16 @@ class LoginActivity : AppCompatActivity() {
 
                         var intent = Intent(applicationContext, FirstVisitActivity::class.java)
                         uid = firebaseAuth.uid.toString()
-                        editor.putString("userToken", uid)
-                        editor.putString("userEmail", id)
-                        editor.apply()
+//                        pref(this,"userToken", uid)
+//                        editor.putString("userEmail", id)
+//                        editor.apply()
+//
+//                        putStrValue(this ,"userToken", uid)
+//                        putStrValue(this ,"userEmail", id)
+                        MyApplication.prefs.getString("userToken", uid)
+                        MyApplication.prefs.getString("userEmail", id)
+
+
 
                         CoroutineScope(Dispatchers.Main).launch {
 
@@ -147,8 +157,11 @@ class LoginActivity : AppCompatActivity() {
                                                     if (email == id) {
                                                         name = nameCheckValue[i].replace("[", "").replace("]", "")
                                                         Log.d("로그", "계정 있을 시 key name $name")
-                                                        editor.putString("userName", name)
-                                                        editor.apply()
+                                                        MyApplication.prefs.getString("userName", name)
+
+
+//                                                        editor.putString("userName", name)
+//                                                        editor.apply()
                                                     }
                                                 }
 

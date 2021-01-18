@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/setting_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".Setting.SettingFragment">
+    tools:context=".Setting.SettingFragment"
+    >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -70,15 +72,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="-5dp"
-                    android:backgroundTint="#CAC8E1"
-                    android:gravity="center_vertical"
-                    android:text="후원하기"
-                    android:textColor="#111111"
-                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -94,11 +87,16 @@
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:id="@+id/logout_Switch"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:background="#CAC8E1"
+                    android:layout_height="50dp"
+                    android:background="#3C3B40"
                     android:gravity="center_vertical"
-                    android:text="로그아웃" />
+                    android:textStyle="bold"
+                    android:text="  로그아웃"
+                    android:textColor="@color/white"
+                    />
 
 
                 <TextView
@@ -113,10 +111,10 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#CAC8E1"
+                    android:backgroundTint="#3C3B40"
                     android:gravity="center_vertical"
                     android:text="업데이트 버전1.0.0"
-                    android:textColor="@color/black" />
+                    android:textColor="#FFFFFF" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -130,19 +128,19 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#CAC8E1"
+                    android:backgroundTint="#3C3B40"
                     android:gravity="center_vertical"
                     android:text="개발자정보"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/background_Color"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#CAC8E1"
+                    android:backgroundTint="#3C3B40"
                     android:gravity="center_vertical"
                     android:text="배경색"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -156,35 +154,36 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#CAC8E1"
+                    android:backgroundTint="#3C3B40"
                     android:gravity="center_vertical"
                     android:text="후원"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/Review_btn"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#CAC8E1"
+                    android:backgroundTint="#3C3B40"
                     android:gravity="center_vertical"
                     android:text="리뷰 남기기"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#CAC8E1"
+                    android:backgroundTint="#3C3B40"
                     android:gravity="center_vertical"
                     android:text="공지사항"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
 
                 <Button
+                    android:id="@+id/revoke_btn"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#CAC8E1"
+                    android:backgroundTint="#3C3B40"
                     android:gravity="center_vertical"
-                    android:text="공지사항"
-                    android:textColor="@color/black" />
+                    android:text="회원탈퇴"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -195,7 +194,6 @@
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 

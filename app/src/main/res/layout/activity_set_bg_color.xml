@@ -5,16 +5,187 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Setting.SetBgColorActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/background_color_page"
+        >
 
-    <Button
-        android:id="@+id/colorBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/gray_sky_blue"
-        android:text="change"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="배경색상을 골라주세요!"
+            android:textSize="30dp"
+            android:textColor="#111111"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/btn_red"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageButton
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#DC8484" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="Red"
+                    android:textSize="20dp"
+                    android:textColor="#111111"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_Yellow"
+                android:layout_marginBottom="20dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#F8F3C6" />
+
+                <TextView
+                    android:gravity="center"
+                    android:text="Yellow"
+                    android:textSize="20dp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#111111"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/btn_blue"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageButton
+
+                    android:background="#9FC3D6"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="20dp" />
+
+                <TextView
+
+                    android:gravity="center"
+                    android:text="blue"
+                    android:textSize="20dp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#111111"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_mint"
+                android:layout_marginTop="20dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#C5F3E5"/>
+
+                <TextView
+
+                    android:gravity="center"
+                    android:text="Mint"
+                    android:textSize="20dp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#111111"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_purple"
+                android:layout_marginTop="20dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#E3C1DE"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:text="purple"
+                    android:textColor="#111111"
+                    android:textSize="20dp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_white"
+                android:layout_marginTop="20dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/strokecolor" />
+
+                <TextView
+                    android:gravity="center"
+                    android:text="white"
+                    android:textSize="20dp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#111111"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

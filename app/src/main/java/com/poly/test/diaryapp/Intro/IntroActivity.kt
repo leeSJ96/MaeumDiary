@@ -10,7 +10,9 @@ import android.os.Looper
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.poly.test.diaryapp.MainActivity
+import com.poly.test.diaryapp.MyApplication
 import com.poly.test.diaryapp.R
+import com.poly.test.diaryapp.utils.Constants.COLOR_BG
 import kotlinx.coroutines.*
 import java.lang.Runnable
 
@@ -22,15 +24,22 @@ class IntroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
+        BgColorShard()
+//        val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
+//        val uid = pref.getString("userToken", null)
+//        val name = pref.getString("userName","")
+//        val email = pref.getString("userEmail","")
+//        Log.d("로그","uid $uid")
+//        Log.d("로그","name $name")
+//        Log.d("로그","email $email")
 
-        val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
-        val uid = pref.getString("userToken", null)
-        val name = pref.getString("userName","")
-        val email = pref.getString("userEmail","")
+//        val uid = SharedPreferenceFactory.getStrValue(this,"userToken" ,null)
+//        val name = SharedPreferenceFactory.getStrValue(this,"userName" ,"")
+//        val email = SharedPreferenceFactory.getStrValue(this,"userEmail" ,"")
 
-        Log.d("로그","uid $uid")
-        Log.d("로그","name $name")
-        Log.d("로그","email $email")
+        val uid = MyApplication.prefs.getString("userToken", "")
+        val name = MyApplication.prefs.getString("userName", "")
+        val email =  MyApplication.prefs.getString("userEmail", "")
 
         if (uid != null) {
 
@@ -106,6 +115,18 @@ class IntroActivity : AppCompatActivity() {
         }
 
         },1500)
+    }
+
+    fun BgColorShard(){
+
+        when( MyApplication.prefs.getString("color","0")){
+            "1" -> COLOR_BG = R.color.red
+            "2" -> COLOR_BG = R.color.yellow
+            "3" -> COLOR_BG = R.color.blue
+            "4" -> COLOR_BG = R.color.mint
+            "5" -> COLOR_BG = R.color.purple
+            else -> COLOR_BG = R.color.white
+        }
     }
 
 

@@ -11,5 +11,11 @@
     <color name="gray_sky_blue">#7B8D95</color>
     <color name="green">#009688</color>
     <color name="pink">#DC8484</color>
+    <color name="red">#DC8484</color>
+    <color name="yellow">#F8F3C6</color>
+    <color name="blue">#9FC3D6</color>
+    <color name="mint">#C5F3E5</color>
+    <color name="purple">#E3C1DE</color>
+
 
 </resources>
