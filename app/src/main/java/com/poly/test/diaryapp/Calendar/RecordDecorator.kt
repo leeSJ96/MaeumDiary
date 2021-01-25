@@ -10,24 +10,21 @@ import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.DayViewFacade
 
-class OneDayDecorator : DayViewDecorator {
+class RecordDecorator(var recodeArray: ArrayList<String>) : DayViewDecorator {
 
 
-    private val date = CalendarDay.today()
-
+    // array 변수로 값 받기
 
     override fun shouldDecorate(day: CalendarDay?): Boolean {
 
-        Log.d("로그","Today date1 $date")
-        Log.d("로그","Today date2 ${day?.date}")
-        return day!! == date
+
+        return false
     }
 
     override fun decorate(view: DayViewFacade?) {
-
         view?.addSpan(StyleSpan(Typeface.BOLD))
         view?.addSpan(RelativeSizeSpan(1.4f))
-        view?.addSpan(ForegroundColorSpan(Color.DKGRAY))
-        
+        view?.addSpan(ForegroundColorSpan(Color.YELLOW))
+
     }
 }

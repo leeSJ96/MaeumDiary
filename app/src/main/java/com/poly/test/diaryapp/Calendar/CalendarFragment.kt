@@ -10,7 +10,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.FirebaseFirestore
@@ -38,6 +37,7 @@ class CalendarFragment : Fragment(), OnDateSelectedListener {
 
     private val calendarArray = ArrayList<CalendarModel>()
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -46,11 +46,14 @@ class CalendarFragment : Fragment(), OnDateSelectedListener {
 
         val view = inflater.inflate(R.layout.fragment_calendar, container, false)
         calendarView = view
+
         val pref: SharedPreferences = activity!!.getSharedPreferences("ref", Context.MODE_PRIVATE)
 
         val saturday = SaturdayDecorator()
         val sunDay = SundayDecorator()
         val today = OneDayDecorator()
+
+
         val todayFormat = SimpleDateFormat("yyyy년 MM월 dd일")
         val date = Date()
 
@@ -113,6 +116,8 @@ class CalendarFragment : Fragment(), OnDateSelectedListener {
         if (selected) {
 
             try {
+                Log.d("로그","day 선택 $date")
+
                 dateString = dateFormat.format(date.date)
                 todayString = todayFormat.format(date.date)
                 setDetailDateView(dateString, todayString, date.date)
@@ -146,19 +151,6 @@ class CalendarFragment : Fragment(), OnDateSelectedListener {
 
     private fun setData() {
 
-        val saveData = CalendarModel()
-
-
-        // 예제용 데이터
-        saveData.apply {
-            name = this@CalendarFragment.name
-            uid = this@CalendarFragment.uid
-            content = "토익숙제"
-            date = "2021-01-20"
-        }
-
-        FirebaseFirestore.getInstance().collection("user_calendar")
-                .document(saveData.uid!!).set(saveData)
 
 
     }

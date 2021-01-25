@@ -11,8 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DiaryApp">
-        <activity android:name=".Setting.SetBgColorActivity"></activity>
-        <activity android:name=".Calendar.CalendarWriteActivity" />
+        <activity android:name=".Setting.ExitActivity"></activity>
+        <activity android:name=".Setting.SetBgColorActivity" />
+        <activity android:name=".Calendar.CalendarWriteActivity"
+            android:windowSoftInputMode="adjustResize|adjustPan"
+            />
         <activity
             android:name=".Intro.FirstVisitActivity"
             android:screenOrientation="nosensor" />
@@ -33,6 +36,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:windowSoftInputMode="adjustResize|adjustPan"
             android:screenOrientation="nosensor" />
     </application>
 

@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/calendar_write_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/calendar_write_layout"
     android:background="@color/white"
     tools:context=".Calendar.CalendarWriteActivity">
 
@@ -76,17 +76,28 @@
         android:layout_marginBottom="10dp"
         android:background="@color/white"
         android:gravity="start"
-        android:hint="상세 일정을 적어주세요."
+        android:hint="상세 일정을 적어주세요.\n날짜를 클릭하면 다늘 날로 변경 가능합니다"
         android:maxLines="35"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:scrollbars="vertical"
         android:textColor="@color/light_black"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@id/btn_save"
+        app:layout_constraintBottom_toTopOf="@id/btn_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_title" />
+
+
+    <Button
+        android:id="@+id/btn_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/gray_sky_blue"
+        android:text="이미지 추가"
+        app:layout_constraintBottom_toTopOf="@id/btn_save" />
 
     <Button
         android:id="@+id/btn_save"
@@ -97,6 +108,7 @@
         android:backgroundTint="@color/white"
         android:text="일정 저장"
         android:textColor="@color/light_black"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

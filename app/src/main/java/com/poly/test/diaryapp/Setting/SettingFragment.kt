@@ -29,6 +29,12 @@ class SettingFragment : Fragment() {
             startActivity(intent)
         }
 
+        view.exit_button.setOnClickListener {
+            val intent = Intent(activity, SetBgColorActivity::class.java)
+            startActivity(intent)
+        }
+
+
         return view
     }
 
