@@ -76,21 +76,32 @@
         android:layout_marginBottom="10dp"
         android:background="@color/white"
         android:gravity="start"
-        android:hint="상세 일정을 적어주세요.\n날짜를 클릭하면 다늘 날로 변경 가능합니다"
+        android:hint="상세 일정을 적어주세요.\n날짜를 클릭하면 다른 날로 변경 가능합니다"
         android:maxLines="35"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:scrollbars="vertical"
         android:textColor="@color/light_black"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@id/btn_img"
+        app:layout_constraintBottom_toTopOf="@id/btn_img_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_title" />
 
 
+    <ImageView
+        android:id="@+id/add_photo_image"
+        android:visibility="invisible"
+        android:src="@drawable/ic_baseline_calendar_today_24"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginLeft="18dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_img_input"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
     <Button
-        android:id="@+id/btn_img"
+        android:id="@+id/btn_img_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"

@@ -5,5 +5,6 @@ data class CalendarModel(
     var uid : String? = null,
     var content : String? = null,
     var title : String? = null,
-    var date : String? = null
+    var date : String? = null,
+    var photoUri : String? =null
 )

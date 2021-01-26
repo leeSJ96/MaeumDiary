@@ -60,6 +60,10 @@ dependencies {
     // 파이어베이스 스토어
     implementation 'com.google.firebase:firebase-firestore:22.0.0'
 
+    // 파이어베이스 스토리지
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
+
+
     // 타겟 에러 방지
     implementation 'com.android.support:multidex:1.0.3'
 
