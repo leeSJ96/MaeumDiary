@@ -170,7 +170,7 @@ class CalendarWriteActivity : AppCompatActivity() {
             content = edit_content.text.toString()
             title = edit_title.text.toString()
             date = date_title.text.toString()
-            photoUri = null
+            photoUri = "NullPhotoLink"
         }
 
         fireStore?.collection("user_calendar")?.document()?.set(calendarModel)

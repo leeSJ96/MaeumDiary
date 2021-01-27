@@ -8,16 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.poly.test.diaryapp.App
 import com.poly.test.diaryapp.R
 import com.poly.test.diaryapp.models.CalendarModel
 import kotlinx.android.synthetic.main.layout_date_list.view.*
 
-class CalendarListAdapter(val context: Context, private val calendarArray: ArrayList<CalendarModel>) : RecyclerView.Adapter<CalendarListAdapter.CalendarViewHolder>() {
+class CalendarListAdapter(private val calendarArray: ArrayList<CalendarModel>) : RecyclerView.Adapter<CalendarListAdapter.CalendarViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
 
-        val view = LayoutInflater.from(context).inflate(R.layout.layout_date_list, parent, false)
+        val view = LayoutInflater.from(App.instance).inflate(R.layout.layout_date_list, parent, false)
 
         return CalendarViewHolder(view)
     }
@@ -42,10 +43,11 @@ class CalendarListAdapter(val context: Context, private val calendarArray: Array
             dateTitleTv.text = dateList.title
             dateTv.text = dateList.date
 
-            Glide.with(context)
+            Glide.with(App.instance)
                     .load(dateList.photoUri)
                     .placeholder(R.drawable.ic_baseline_calendar_today_24)
-                    .transform(RoundedCorners(20))
+                    .error(R.drawable.ic_baseline_calendar_today_24)
+                    .transform(CenterCrop() ,RoundedCorners(20))
                     .into(dateImg)
 
 
