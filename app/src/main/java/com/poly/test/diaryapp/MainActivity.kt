@@ -2,7 +2,6 @@ package com.poly.test.diaryapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
@@ -10,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.poly.test.diaryapp.Calendar.CalendarFragment
 import com.poly.test.diaryapp.Calendar.CalendarListFragment
 import com.poly.test.diaryapp.Home.HomeFragment
 import com.poly.test.diaryapp.Setting.SettingFragment

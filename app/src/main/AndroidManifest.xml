@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.poly.test.diaryapp">
-
-
     <!-- 인터넷 퍼미션 설정값 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 스토리지 접근 권한 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 스토리지 접근 권한 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -15,11 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DiaryApp">
-        <activity android:name=".Setting.ExitActivity"></activity>
+        <activity android:name=".BaseActivity"></activity>
+        <activity android:name=".Setting.ExitActivity" />
         <activity android:name=".Setting.SetBgColorActivity" />
-        <activity android:name=".Calendar.CalendarWriteActivity"
-            android:windowSoftInputMode="adjustResize|adjustPan"
-            />
+        <activity
+            android:name=".Calendar.CalendarWriteActivity"
+            android:windowSoftInputMode="adjustResize|adjustPan" />
         <activity
             android:name=".Intro.FirstVisitActivity"
             android:screenOrientation="nosensor" />
@@ -40,8 +38,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="adjustResize|adjustPan"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"
+            android:windowSoftInputMode="adjustResize|adjustPan" />
     </application>
 
 </manifest>

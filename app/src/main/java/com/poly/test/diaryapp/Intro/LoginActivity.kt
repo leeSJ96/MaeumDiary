@@ -22,7 +22,6 @@ class LoginActivity : AppCompatActivity() {
 
 
     private var firebaseAuth = FirebaseAuth.getInstance()
-    private var coroutineJob = Job()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,126 +83,54 @@ class LoginActivity : AppCompatActivity() {
         val uidStore = FirebaseFirestore.getInstance().collection("user_uid")
         val nameStore = FirebaseFirestore.getInstance().collection("user_name")
 
-        val uidCheckKey = ArrayList<String>()  // 유저 이메일
-        val uidCheckValue = ArrayList<String>() // 유저 uid
-
-        val nameCheckKey = ArrayList<String>()
-        val nameCheckValue = ArrayList<String>()
+        val name = pref.getString("userName"," ")
 
 
         var authFirstCheck = true
         var email = ""
         var uid = ""
-        var name = ""
 
         firebaseAuth.signInWithEmailAndPassword(id, pw)
-                .addOnCompleteListener(this) { task ->
+            .addOnCompleteListener(this) { task ->
 
-                    if (task.isSuccessful) {
+                if (task.isSuccessful) {
 
-                        var intent = Intent(applicationContext, FirstVisitActivity::class.java)
-                        uid = firebaseAuth.uid.toString()
-                        editor.putString("userToken", uid)
-                        editor.putString("userEmail", id)
-                        editor.apply()
-
-                        CoroutineScope(Dispatchers.Main).launch {
-
-                            uidStore.get().addOnSuccessListener {
-
-                                coroutineJob = CoroutineScope(Dispatchers.IO).launch {
-
-                                    withContext(Dispatchers.IO) {
-                                        for (document in it) {
-                                            uidCheckKey.add(document.data.keys.toString())
-                                            uidCheckValue.add(document.data.values.toString())
-                                        }
-
-                                        for (i in uidCheckKey.indices) {
-
-                                            email = uidCheckKey[i].replace("[", "").replace("]", "")
-                                            Log.d("로그", "key size ${uidCheckKey.size}")
-                                            Log.d("로그", "key email $email")
-                                            if (email == id) {
-                                                authFirstCheck = false
-                                            }
-                                        }
-                                    } // withContext
-
-                                    withContext(Dispatchers.IO) {
-                                        if (!authFirstCheck) {  // 계정이 있을 시.
-                                            nameStore.get().addOnSuccessListener {
+                    var intent = Intent(applicationContext, FirstVisitActivity::class.java)
+                    uid = firebaseAuth.uid.toString()
+                    editor.putString("userToken", uid)
+                    editor.putString("userEmail", id)
+                    editor.apply()
 
 
-                                                for (document in it) {
-                                                    nameCheckKey.add(document.data.keys.toString())
-                                                    nameCheckValue.add(document.data.values.toString())
-                                                }
+                    uidStore.whereEqualTo(id,uid).addSnapshotListener { value, _ ->
 
-                                                for (i in nameCheckKey.indices) {
+                        authFirstCheck = value != null
 
-                                                    Log.d("로그", "계정 있을 시 key size ${nameCheckKey.size}")
-                                                    email = nameCheckKey[i].replace("[", "").replace("]", "")
-                                                    if (email == id) {
-                                                        name = nameCheckValue[i].replace("[", "").replace("]", "")
-                                                        Log.d("로그", "계정 있을 시 key name $name")
-                                                        editor.putString("userName", name)
-                                                        editor.apply()
-                                                    }
-                                                }
+                        if(!authFirstCheck) {
+                            nameStore.whereEqualTo(id,name).addSnapshotListener { value, _ ->
 
+                                if(value != null ) {
+                                    editor.putString("userName",name)
+                                    editor.apply()
 
-                                            }   // nameStore
-                                        }
-                                    }
+                                    intent = Intent(this@LoginActivity, MainActivity::class.java)
 
-
-                                    withContext(Dispatchers.Main) {
-                                        intent = when (authFirstCheck) {
-                                            true -> Intent(this@LoginActivity, FirstVisitActivity::class.java)
-                                            false -> Intent(this@LoginActivity, MainActivity::class.java)
-                                        }
-                                        coroutineJob.cancel()
-                                        startActivity(intent)
-                                        this@LoginActivity.finish()
-                                        overridePendingTransition(R.anim.page_right_in, R.anim.page_left_out)
-                                    }
                                 }
-                            }   // uidStore
+                                startActivity(intent)
+                                overridePendingTransition(R.anim.page_right_in, R.anim.page_left_out)
+                            }
 
-
-                            coroutineJob.join()
-
-                        } // 코루틴 스코프
-
-
-                    } // if success
-
-                } // addOnComplete
-
-                .addOnFailureListener {
-                    login_btn.isEnabled = true
-                    login_btn.text = "로그인하기"
-
-                    when {
-                        IdFail in it.toString() -> {
-                            Snackbar.make(login_layout, "아이디가 없습니다", Snackbar.LENGTH_SHORT).show()
+                        } else {
+                            intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            startActivity(intent)
+                            overridePendingTransition(R.anim.page_right_in, R.anim.page_left_out)
                         }
-                        PasswordFail in it.toString() -> {
-                            Snackbar.make(login_layout, "비밀번호가 일치하지 않습니다", Snackbar.LENGTH_SHORT).show()
-                        }
-                        EmailFormError in it.toString() -> {
-                            Snackbar.make(login_layout, "아이디는 이메일 형식으로 작성해주세요", Snackbar.LENGTH_SHORT)
-                                    .show()
-                        }
+
                     }
+
+
                 }
 
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        coroutineJob.cancel()
+            }
     }
 }

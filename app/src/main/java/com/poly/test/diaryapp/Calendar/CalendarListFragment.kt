@@ -26,6 +26,10 @@ class CalendarListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
+
+        Log.d("로그","onCreateView - call")
+
+
         val view = inflater.inflate(R.layout.fragment_calendar_list, container, false)
         val calendarDate : Date = Date()
 
@@ -46,6 +50,12 @@ class CalendarListFragment : Fragment() {
         return view
     }
 
+
+    private fun getData() {
+
+
+
+    }
 
 
 
