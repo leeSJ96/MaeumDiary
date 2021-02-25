@@ -21,7 +21,7 @@
 
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/main_text"
             android:layout_width="388dp"
             android:layout_height="34dp"
             android:gravity="center"
@@ -36,10 +36,11 @@
             app:layout_constraintVertical_bias="0.242" />
 
         <TextView
+            android:id="@+id/sub_text"
             android:layout_width="321dp"
             android:layout_height="34dp"
             android:gravity="center"
-            android:text="####년 ##월은 #번의 기록을 하셨습니다 "
+            android:text="이번달 다이어리 기록 0개"
             android:textColor="#989898"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -52,6 +53,7 @@
 
 
     <FrameLayout
+        android:background="@color/white"
         android:id="@+id/frag_layout_set"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -74,9 +76,10 @@
 
 
                 <TextView
+                    android:id="@+id/login_text"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="#ffffff"
+                    android:background="#7F7F91"
                     android:gravity="center_vertical"
                     android:text="로그인"
                     android:textColor="#6C6C6C"
@@ -86,12 +89,13 @@
                     />
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:fontFamily="@font/sdmisaeng"
                     android:id="@+id/logout_Switch"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="#3C3B40"
+                    android:background="#929197"
                     android:gravity="center_vertical"
                     android:textStyle="bold"
                     android:text="  로그아웃"
@@ -100,90 +104,107 @@
 
 
                 <TextView
+                    android:id="@+id/settings_text"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="#ffffff"
+                    android:background="#7F7F91"
                     android:gravity="center_vertical"
                     android:text="설정"
                     android:textColor="#6C6C6C"
                     android:textSize="20sp" />
 
                 <Button
+                    android:id="@+id/appversion_btn"
+                    android:fontFamily="@font/sdmisaeng"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#3C3B40"
+                    android:backgroundTint="#929197"
                     android:gravity="center_vertical"
                     android:text="업데이트 버전1.0.0"
                     android:textColor="#FFFFFF" />
 
                 <TextView
+                    android:id="@+id/title_text"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="#ffffff"
+                    android:background="#7F7F91"
                     android:gravity="center_vertical"
                     android:text="기타"
                     android:textColor="#6C6C6C"
                     android:textSize="20sp" />
 
                 <Button
+                    android:id="@+id/developer_btn"
+                    android:fontFamily="@font/sdmisaeng"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#3C3B40"
+                    android:backgroundTint="#929197"
                     android:gravity="center_vertical"
                     android:text="개발자정보"
                     android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/background_Color"
+                    android:fontFamily="@font/sdmisaeng"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#3C3B40"
+                    android:backgroundTint="#929197"
                     android:gravity="center_vertical"
                     android:text="배경색"
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:id="@+id/support_text"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="#ffffff"
+                    android:background="#7F7F91"
                     android:gravity="center_vertical"
                     android:text="문의하기"
                     android:textColor="#6C6C6C"
                     android:textSize="20sp" />
 
                 <Button
+
+                    android:id="@+id/support_btn"
+                    android:fontFamily="@font/sdmisaeng"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#3C3B40"
+                    android:backgroundTint="#929197"
                     android:gravity="center_vertical"
                     android:text="후원"
                     android:textColor="@color/white" />
 
                 <Button
+                    android:fontFamily="@font/sdmisaeng"
                     android:id="@+id/Review_btn"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#3C3B40"
+                    android:backgroundTint="#929197"
                     android:gravity="center_vertical"
                     android:text="리뷰 남기기"
                     android:textColor="@color/white" />
 
                 <Button
+                    android:id="@+id/notice_btn"
+                    android:fontFamily="@font/sdmisaeng"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#3C3B40"
+                    android:backgroundTint="#929197"
                     android:gravity="center_vertical"
                     android:text="공지사항"
                     android:textColor="@color/white" />
 
                 <Button
+                    android:fontFamily="@font/sdmisaeng"
                     android:id="@+id/revoke_btn"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:backgroundTint="#3C3B40"
+                    android:backgroundTint="#929197"
                     android:gravity="center_vertical"
                     android:text="회원탈퇴"
                     android:textColor="@color/white" />
+
+
 
             </LinearLayout>
 

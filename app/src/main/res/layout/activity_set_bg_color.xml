@@ -12,158 +12,175 @@
         >
 
 
-
-        <TextView
-            android:layout_marginTop="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="배경색상을 골라주세요!"
-            android:textSize="30dp"
-            android:textColor="#111111"
-            />
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:orientation="vertical">
 
 
             <LinearLayout
                 android:id="@+id/btn_red"
-                android:layout_width="200dp"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="175dp"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageButton
 
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginRight="20dp"
+
                     android:background="#DC8484" />
 
                 <TextView
+                    android:id="@+id/textred"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:text="Red"
-                    android:textSize="20dp"
-                    android:textColor="#111111"/>
+                    android:textColor="#111111"
+                    android:textSize="18sp"
+                    android:layout_marginStart="10dp" />
             </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/btn_Yellow"
-                android:layout_marginBottom="20dp"
-                android:layout_width="200dp"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="30dp"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_red">
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginRight="20dp"
+
                     android:background="#F8F3C6" />
 
                 <TextView
-                    android:gravity="center"
-                    android:text="Yellow"
-                    android:textSize="20dp"
+                    android:id="@+id/textyellow"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:textColor="#111111"/>
+                    android:gravity="center"
+                    android:text="Yellow"
+                    android:textColor="#111111"
+                    android:textSize="18dp" />
             </LinearLayout>
-
 
             <LinearLayout
                 android:id="@+id/btn_blue"
-                android:layout_width="200dp"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="30dp"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_Yellow">
 
                 <ImageButton
 
-                    android:background="#9FC3D6"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginRight="20dp" />
+                    android:background="#9FC3D6" />
 
                 <TextView
-
+                    android:id="@+id/textblue"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:text="blue"
-                    android:textSize="20dp"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="#111111"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btn_mint"
-                android:layout_marginTop="20dp"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <ImageView
-
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginRight="20dp"
-                    android:background="#C5F3E5"/>
-
-                <TextView
-
-                    android:gravity="center"
-                    android:text="Mint"
-                    android:textSize="20dp"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="#111111"/>
+                    android:textColor="#111111"
+                    android:textSize="18dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/btn_purple"
-                android:layout_marginTop="20dp"
-                android:layout_width="200dp"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="30dp"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_blue">
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginRight="20dp"
-                    android:background="#E3C1DE"/>
+
+                    android:background="#E3C1DE" />
 
                 <TextView
-                    android:gravity="center"
-                    android:text="purple"
-                    android:textColor="#111111"
-                    android:textSize="20dp"
+                    android:id="@+id/textpuple"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
+                    android:gravity="center"
                     android:orientation="horizontal"
-                    />
+                    android:text="purple"
+                    android:textColor="#111111"
+                    android:textSize="18dp" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btn_mint"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_purple">
+
+                <ImageView
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+
+                    android:background="#C5F3E5" />
+
+                <TextView
+                    android:id="@+id/textmint"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="Mint"
+                    android:textColor="#111111"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:id="@+id/btn_white"
-                android:layout_marginTop="20dp"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_mint"
+                app:layout_constraintVertical_bias="0.323">
 
 
                 <ImageView
@@ -173,18 +190,223 @@
                     android:background="@drawable/strokecolor" />
 
                 <TextView
-                    android:gravity="center"
-                    android:text="white"
-                    android:textSize="20dp"
+                    android:id="@+id/textwhite"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="white"
                     android:textColor="#111111"
-                    />
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_red_g"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="175dp"
+                android:layout_marginRight="25dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+
+                    android:background="@drawable/red_g" />
+
+                <TextView
+                    android:id="@+id/textred_g"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="Gradient Red"
+                    android:textColor="#111111"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_yellow_g"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_red_g">
+
+                <ImageButton
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+
+                    android:background="@drawable/yellow_g" />
+
+                <TextView
+                    android:id="@+id/textyellow_g"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="Gradient Yellow "
+                    android:textColor="#111111"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_blue_g"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_yellow_g">
+
+                <ImageButton
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/blue_g" />
+
+                <TextView
+                    android:id="@+id/textblue_g"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="Gradient Blue"
+                    android:textColor="#111111"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_purple_g"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="24dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_blue_g">
+
+                <ImageButton
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/puple_g" />
+
+                <TextView
+                    android:id="@+id/textpuple_g"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="Gradient purple"
+                    android:textColor="#111111"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_mint_g"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_purple_g">
+
+                <ImageButton
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+
+                    android:background="@drawable/mint_g" />
+
+                <TextView
+                    android:id="@+id/textmint_g"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="Gradient Mint"
+                    android:textColor="#111111"
+                    android:textSize="15sp" />
             </LinearLayout>
 
 
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/bg_cancel"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/icon_cancel_b"
+                android:padding="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.627"
+                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="32dp"
+                android:text="기본"
+                android:textColor="#575757"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toStartOf="@+id/textView3"
+                app:layout_constraintHorizontal_bias="0.172"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="배경색상을 골라주세요"
+                android:textColor="#111111"
+                android:textSize="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.527"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="72dp"
+                android:layout_marginRight="72dp"
+                android:text="그라데이션"
+                android:textColor="#575757"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>
 

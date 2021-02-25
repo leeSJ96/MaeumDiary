@@ -4,19 +4,19 @@
     <item
         android:id="@+id/home_tab"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_border_color_24"
+        android:icon="@drawable/icon_h"
         android:title="기록" />
 
     <item
         android:id="@+id/calendar_tab"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:icon="@drawable/icon_d"
         android:title="달력"/>
 
     <item
         android:id="@+id/setting_tab"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_settings_24"
+        android:icon="@drawable/icon_set"
         android:title="설정" />
 
 

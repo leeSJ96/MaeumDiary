@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/home_item_back"
+    android:background="@drawable/home_corner_drawable"
+    android:padding="10dp">
+
+
+    <ImageView
+        android:id="@+id/diary_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:padding="15dp"
+        android:src="@drawable/cat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/content_title_tv"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sdmisaeng"
+        android:text="일정 타이틀이 들어갈 자리"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/diary_image" />
+
+    <TextView
+        android:id="@+id/content_content_tv"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/sdmisaeng"
+        android:paddingLeft="10dp"
+        android:text="오늘 내가 뭐했더라. 자꾸 까먹네."
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/content_title_tv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

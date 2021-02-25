@@ -31,6 +31,7 @@
         app:layout_constraintTop_toBottomOf="@id/title">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:fontFamily="@font/sdmisaeng"
             android:id="@+id/login_email_input"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
@@ -50,6 +51,7 @@
         app:layout_constraintTop_toBottomOf="@id/email_layout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:fontFamily="@font/sdmisaeng"
             android:id="@+id/login_password_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,6 +62,7 @@
 
 
     <Button
+        android:fontFamily="@font/sdmisaeng"
         android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -73,6 +76,7 @@
         app:layout_constraintTop_toBottomOf="@id/password_layout" />
 
     <Button
+        android:fontFamily="@font/sdmisaeng"
         android:id="@+id/create_auth_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -85,6 +89,7 @@
         app:layout_constraintTop_toBottomOf="@id/login_btn" />
 
     <Button
+        android:fontFamily="@font/sdmisaeng"
         android:id="@+id/missing_auth_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"

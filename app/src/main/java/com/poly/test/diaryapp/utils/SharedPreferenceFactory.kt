@@ -1,42 +1,43 @@
-//package com.poly.test.diaryapp.utils
-//
-//import android.content.Context
-//import android.content.Context.MODE_PRIVATE
-//import android.content.SharedPreferences
-//
-//object SharedPreferenceFactory {
-//
-//    private fun getSharedPreferences(context: Context): SharedPreferences {
-//        return context.getSharedPreferences("prefs_name", MODE_PRIVATE)
-//    }
-//
-//    fun getStrValue(context: Context?, KEY: String, defaultValue: String? = null): String? {
-//
-//        return getSharedPreferences(context!!).getString(KEY, defaultValue)
-//    }
-//
-//    fun getIntValue(context: Context?, KEY: String, defaultValue: Int? = 0): Int? {
-//
-//        return defaultValue?.let { getSharedPreferences(context!!).getInt(KEY, it) }
-//    }
-//
-//    fun putStrValue(context: Context?, KEY: String, valueString: String?) {
-//        val editor = getSharedPreferences(context!!).edit()
-//        editor.putString(KEY, valueString)
-//        editor.apply()
-//    }
-//
-//    fun putIntValue(context: Context?, KEY: String, valueInt: Int?) {
-//        val editor = getSharedPreferences(context!!).edit()
-//        valueInt?.let { editor.putInt(KEY, it) }
-//        editor.apply()
-//    }
-//
-//    fun clearAllValue(context: Context?) {
-//        val editor = getSharedPreferences(context!!).edit()
-//        editor.clear()
-//        editor.apply()
-//        editor.commit()
-//    }
-//
-//}
+package com.poly.test.diaryapp.utils
+
+import android.content.Context
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
+import com.poly.test.diaryapp.App
+
+object SharedPreferenceFactory {
+
+    private fun getSharedPreferences(): SharedPreferences {
+        return App.instance.getSharedPreferences("prefs_name", MODE_PRIVATE)
+    }
+
+    fun getStrValue(KEY: String, defaultValue: String? = null): String? {
+
+        return getSharedPreferences().getString(KEY, defaultValue)
+    }
+
+    fun getIntValue(KEY: String, defaultValue: Int? = 0): Int? {
+
+        return defaultValue?.let {  getSharedPreferences().getInt(KEY, it) }
+    }
+
+    fun putStrValue(KEY: String, valueString: String?) {
+        val editor =  getSharedPreferences().edit()
+        editor.putString(KEY, valueString)
+        editor.apply()
+    }
+
+    fun putIntValue(KEY: String, valueInt: Int?) {
+        val editor =  getSharedPreferences().edit()
+        valueInt?.let { editor.putInt(KEY, it) }
+        editor.apply()
+    }
+
+    fun clearAllValue() {
+        val editor =  getSharedPreferences().edit()
+        editor.clear()
+        editor.apply()
+    }
+
+
+}

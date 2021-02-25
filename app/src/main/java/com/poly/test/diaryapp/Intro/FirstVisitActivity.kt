@@ -11,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import com.poly.test.diaryapp.MainActivity
 import com.poly.test.diaryapp.R
+import com.poly.test.diaryapp.utils.SharedPreferenceFactory
 import com.poly.test.diaryapp.utils.onMyTextChanged
 import kotlinx.android.synthetic.main.activity_firstvisit.*
 
@@ -22,13 +23,13 @@ class FirstVisitActivity : AppCompatActivity() {
         setContentView(R.layout.activity_firstvisit)
 
 
-        val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
-        val email = pref.getString("userEmail", "")
-        val uid = pref.getString("userToken", "")
-
-
-        Log.d("로그", "email $email")
-        Log.d("로그", "uid $uid ")
+//        val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
+//        val email = pref.getString("userEmail", "")
+//        val uid = pref.getString("userToken", "")
+        val uid = SharedPreferenceFactory.getStrValue("userToken", "")
+        val email = SharedPreferenceFactory.getStrValue("userEmail", "")
+        Log.d("로그", "First email : $email")
+        Log.d("로그", "First uid : $uid ")
 
         name_edit.onMyTextChanged {
 
@@ -60,6 +61,8 @@ class FirstVisitActivity : AppCompatActivity() {
     // 2. uid 저장하기
     private fun nameSaveDB(userEmail: String, userUid: String) {
 
+
+
         Log.d("로그", "nameSaveDB - call")
         val name = name_edit.text.toString()
         val email: String = userEmail
@@ -70,8 +73,8 @@ class FirstVisitActivity : AppCompatActivity() {
         val nameMap: MutableMap<String, String> = HashMap()
         val uidMap: MutableMap<String, String> = HashMap()
 
-        val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
-        val edit = pref.edit()
+//        val pref: SharedPreferences = getSharedPreferences("ref", Context.MODE_PRIVATE)
+//        val edit = pref.edit()
 
         nameMap[email] = name
         uidMap[email] = uid
@@ -79,9 +82,11 @@ class FirstVisitActivity : AppCompatActivity() {
 
 
         nameStore.add(nameMap).addOnSuccessListener {
+            SharedPreferenceFactory.putStrValue("userName" ,nameMap[email])
+//            edit.putString("userName", nameMap[email])
+//            edit.apply()
+//
 
-            edit.putString("userName", nameMap[email])
-            edit.apply()
             Log.d("로그","name ${nameMap[email]}")
             Log.d("로그", "이름 저장 성공")
         }
