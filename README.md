@@ -66,13 +66,19 @@ firebase 사용하였습니다
    ![image](https://ifh.cc/g/CUYfIR.png)  
    ![image](https://ifh.cc/g/01vbQE.png)  
    ![image](https://ifh.cc/g/ox04R6.png)  
-   ![image](https://ifh.cc/g/caIVnh.png)  
+   ![image](https://ifh.cc/g/caIVnh.png)    
               
+     
       
+  ![image](https://ifh.cc/g/caIVnh.png)    
+  ![image](https://ifh.cc/g/43reYz.png)    
+               
+           
+  
   마지막으로 로그아웃 및 회원탈퇴를 구현하였습니다     
     
   여기 까지 제가 담담한 부분이였습니다.    
-              
+           
          
       
 
