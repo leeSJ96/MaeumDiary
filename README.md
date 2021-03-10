@@ -39,21 +39,20 @@
            친구목록 아이콘을 누르면   
            친구추가가 된 친구목록을 볼수 있습니다   
               
-                 
-                    
-           ![image](https://ifh.cc/g/O0SJYp.png)  
-           
-           
-              (테마)배경화면 및 글자색 변경입니다   
-              배경화면을 선택 할수 있습니다   
-                 
-                 
-              배경이 변경된 화면입니다
               
-              ![image](https://ifh.cc/g/CUYfIR.png)  
-                   ![image](https://ifh.cc/g/01vbQE.png)  
-                        ![image](https://ifh.cc/g/ox04R6.png)  
-                             ![image](https://ifh.cc/g/caIVnh.png)  
+           
+   ![image](https://ifh.cc/g/O0SJYp.png)  
+           
+           
+   (테마)배경화면 및 글자색 변경입니다   
+       배경화면을 선택 할수 있습니다   
+                 
+   배경이 변경된 화면입니다
+              
+   ![image](https://ifh.cc/g/CUYfIR.png)  
+   ![image](https://ifh.cc/g/01vbQE.png)  
+   ![image](https://ifh.cc/g/ox04R6.png)  
+   ![image](https://ifh.cc/g/caIVnh.png)  
               
            
               
