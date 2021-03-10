@@ -48,8 +48,9 @@
    (테마)배경화면 및 글자색 변경입니다   
        배경화면을 선택 할수 있습니다  
          
-                 
-   배경이 변경된 화면입니다
+                     
+      
+   배경이 변경된 화면들입니다
             
    ![image](https://ifh.cc/g/CUYfIR.png)  
    ![image](https://ifh.cc/g/01vbQE.png)  
