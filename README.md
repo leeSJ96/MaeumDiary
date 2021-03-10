@@ -7,6 +7,16 @@
 
 * 유튜브 포트폴리오 <https://youtu.be/6NbrK0NJNDk>
 
+    
+    
+       
+       
+개발언어 . Kotlin
+개발 프로그램 . Android Studio
+
+라이브러리 glide , firebase
+firebase 사용하였습니다
+
  
    
 제가 담당한 부분을 리뷰하겠습니다   
@@ -57,7 +67,10 @@
    ![image](https://ifh.cc/g/ox04R6.png)  
    ![image](https://ifh.cc/g/caIVnh.png)  
               
-           
+      
+  마지막으로 로그아웃 및 회원탈퇴를 구현하였습니다 
+    
+  여기 까지 제가 담담한 부분이였습니다.
               
          
       
