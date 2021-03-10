@@ -34,9 +34,9 @@ firebase 사용하였습니다
      이곳은 닉네임과 오늘적은 다이어리 갯수, 친구한테 공유받은 다이어리 갯수를 알려줍니다
                
                   
-     ![image](https://ifh.cc/g/O3nExF.png) 
+   ![image](https://ifh.cc/g/O3nExF.png) 
         
-        MyTday(나의 투데이 목록)에 기록에 맞춰 갯수가 올라가는걸 볼수있습니다
+   MyTday(나의 투데이 목록)에 기록에 맞춰 갯수가 올라가는걸 볼수있습니다
    
    ![image](https://ifh.cc/g/RUjY61.png)    
       
