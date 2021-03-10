@@ -11,7 +11,8 @@
    
 제가 담당한 부분을 리뷰하겠습니다   
 
-로그인 부분은 전에 설명한 Meetagain 앱이랑 코드 uiux 전부 동일함으로 넘어가겠습니다
+로그인 부분은 전에 설명한 Meetagain 앱이랑 코드 uiux 전부 동일함으로 넘어가겠습니다   
+
 기록 페이지
 -------------   
   ![image](https://ifh.cc/g/kRN53k.png)
@@ -36,7 +37,26 @@
          
            친구리스트 입니다  
            친구목록 아이콘을 누르면   
-           친구추가가 된 친구목록을 볼수 있습니다
+           친구추가가 된 친구목록을 볼수 있습니다   
+              
+                 
+                    
+           ![image](https://ifh.cc/g/O0SJYp.png)  
+           
+           
+              (테마)배경화면 및 글자색 변경입니다   
+              배경화면을 선택 할수 있습니다   
+                 
+                 
+              배경이 변경된 화면입니다
+              
+              ![image](https://ifh.cc/g/CUYfIR.png)  
+                   ![image](https://ifh.cc/g/01vbQE.png)  
+                        ![image](https://ifh.cc/g/ox04R6.png)  
+                             ![image](https://ifh.cc/g/caIVnh.png)  
+              
+           
+              
          
       
 
