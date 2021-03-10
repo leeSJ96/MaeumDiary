@@ -46,7 +46,7 @@ class FriendListAdapter(private val FriendAddArray: ArrayList<FriendAddModel>,cl
 
         private val dateEmail = itemView.friend_id
         private val dateName = itemView.friend_name
-        private val dateDate = itemView.friend_date
+
         private val datadelete = itemView.friend_delete
         private var iClickInterface : IDeletePosition
 

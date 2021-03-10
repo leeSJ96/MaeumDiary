@@ -241,7 +241,7 @@ class SettingFragment : Fragment() {
             .setNegativeButton("취소",
                 DialogInterface.OnClickListener { dialog, whichButton -> })
             .show()
-        Snackbar.make(setting_layout, "로그아웃이 취소 되었습니다.", Snackbar.LENGTH_LONG).show();
+
     }
 
     fun deleteId(){

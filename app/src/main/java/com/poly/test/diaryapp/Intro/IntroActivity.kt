@@ -280,8 +280,8 @@ class IntroActivity : AppCompatActivity() {
             "8" -> Constants.COLOR_HOME_ITEM = R.drawable.home_corner_drawable_n
             "9" -> Constants.COLOR_HOME_ITEM = R.drawable.home_corner_drawable
             "10" -> Constants.COLOR_HOME_ITEM = R.drawable.home_corner_drawable
-            "11" -> Constants.COLOR_FRIENDLIST =  R.drawable.home_corner_drawable
-            else -> Constants.COLOR_FRIENDLIST = R.drawable.home_corner_drawable_n
+            "11" -> Constants.COLOR_HOME_ITEM =  R.drawable.home_corner_drawable
+            else -> Constants.COLOR_HOME_ITEM = R.drawable.home_corner_drawable_n
         }
     }
 

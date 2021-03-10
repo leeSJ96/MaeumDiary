@@ -25,7 +25,7 @@
             android:layout_width="388dp"
             android:layout_height="34dp"
             android:gravity="center"
-            android:text="다이로그에 #번의 기록을 하셨습니다 "
+            android:text="다이로그에 0번의 기록을 하셨습니다 "
             android:textColor="#252525"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
