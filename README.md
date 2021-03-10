@@ -41,13 +41,13 @@ firebase 사용하였습니다
    ![image](https://ifh.cc/g/RUjY61.png)    
       
        
-        Friend List(친구가 공유한 목록)에 기록에 맞춰 갯수가 올라가는걸 볼수있습니다   
+   Friend List(친구가 공유한 목록)에 기록에 맞춰 갯수가 올라가는걸 볼수있습니다   
            
-         ![image](https://ifh.cc/g/sCrJiW.png)        
-         
-           친구리스트 입니다  
-           친구목록 아이콘을 누르면   
-           친구추가가 된 친구목록을 볼수 있습니다   
+  ![image](https://ifh.cc/g/sCrJiW.png)             
+             
+  친구리스트 입니다  
+  친구목록 아이콘을 누르면   
+  친구추가가 된 친구목록을 볼수 있습니다   
                
 설정 페이지 SettingFragment         
 ------------        
@@ -60,7 +60,7 @@ firebase 사용하였습니다
          
                      
       
-   배경이 변경된 화면들입니다
+   배경이 변경된 화면들입니다      
             
    ![image](https://ifh.cc/g/CUYfIR.png)  
    ![image](https://ifh.cc/g/01vbQE.png)  
