@@ -31,7 +31,8 @@
        
         Friend List(친구가 공유한 목록)에 기록에 맞춰 갯수가 올라가는걸 볼수있습니다   
            
-           https://ifh.cc/g/sCrJiW.png    
+         ![image](https://ifh.cc/g/sCrJiW.png)        
+         
            친구리스트 입니다  
            친구목록 아이콘을 누르면   
            친구추가가 된 친구목록을 볼수 있습니다
