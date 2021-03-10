@@ -36,12 +36,12 @@ firebase 사용하였습니다
                   
    ![image](https://ifh.cc/g/O3nExF.png) 
         
-   MyTday(나의 투데이 목록)에 기록에 맞춰 갯수가 올라가는걸 볼수있습니다   
+   MyTday(나의 투데이 목록)에 기록에 맞춰 마음갯수가 1개 올라가는걸 볼수있습니다   
    
    ![image](https://ifh.cc/g/RUjY61.png)    
       
        
-   Friend List(친구가 공유한 목록)에 기록에 맞춰 갯수가 올라가는걸 볼수있습니다      
+   Friend List(친구가 공유한 목록)에 기록에 맞춰 친구마음갯수가 1 올라가는걸 볼수있습니다      
            
   ![image](https://ifh.cc/g/sCrJiW.png)             
              
