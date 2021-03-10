@@ -70,7 +70,7 @@ firebase 사용하였습니다
               
      
       
-  ![image](https://ifh.cc/g/caIVnh.png)    
+  ![image](https://ifh.cc/g/02F2iP.png)    
   
      
   ![image](https://ifh.cc/g/43reYz.png)    
