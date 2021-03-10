@@ -13,7 +13,7 @@
 
 기록 페이지
 -------------   
-  ![image](https://ifh.cc/v-OoAqe6)
+  ![image](https://ifh.cc/g/kRN53k.png)
      
         
 친구의 다이어리 오늘적은 다이어리를 표시해줍니다   
