@@ -38,9 +38,9 @@
            친구리스트 입니다  
            친구목록 아이콘을 누르면   
            친구추가가 된 친구목록을 볼수 있습니다   
-              
-   설정 페이지 SettingFragment         
-    ------------        
+               
+설정 페이지 SettingFragment         
+------------        
     
    ![image](https://ifh.cc/g/O0SJYp.png)  
            
