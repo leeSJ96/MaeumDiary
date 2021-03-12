@@ -70,7 +70,7 @@ firebase 사용하였습니다
               
 # 다이어리 쓴 총 갯수와, 이번달 다이어리 기록한 횟수
    ![image](https://ifh.cc/g/PSZWcZ.png)    
-                  
+ #  로그아웃 및 회원탈퇴            
   ![image](https://ifh.cc/g/02F2iP.png)    
   
      
@@ -78,7 +78,7 @@ firebase 사용하였습니다
                
            
   
-  마지막으로 로그아웃 및 회원탈퇴를 구현하였습니다     
+
     
   여기 까지 제가 담담한 부분이였습니다.    
            
